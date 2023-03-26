@@ -15,8 +15,8 @@ background_y = 0
 background_width = background.get_width()
 background_height = background.get_height()
 background_speed = 5
-RYCERZ_IMAGE= pygame.image.load(os.path.join('rpg', 'Rycerz128.png'))
-RYCERZR_IMAGE= pygame.image.load(os.path.join('rpg', 'Rycerz128r.png'))
+RYCERZ_IMAGE= pygame.image.load(os.path.join('rpg', 'archer.png'))
+RYCERZR_IMAGE= pygame.image.load(os.path.join('rpg', 'archer1.png'))
 player_pos = pygame.Vector2(screen.get_width() / 2 -64, screen.get_height() / 2 - 64)
 
 while running:
