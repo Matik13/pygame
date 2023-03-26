@@ -19,9 +19,9 @@ background_speed = 5
 CHEST = pygame.image.load(os.path.join('rpg', 'chest.png'))
 chest_x =random.randint(-100,100)
 chest_y =random.randint(-100,100)
-RYCERZ_IMAGE= pygame.image.load(os.path.join('rpg', 'archer.png'))
-RYCERZR_IMAGE= pygame.image.load(os.path.join('rpg', 'archer1.png'))
-player_pos = pygame.Vector2(screen.get_width() / 2 -64, screen.get_height() / 2 - 64)
+WARRIOR_RIGHT_IMAGE= pygame.image.load(os.path.join('rpg', 'warrior_right.png'))
+WARRIOR_LEFT_IMAGE= pygame.image.load(os.path.join('rpg', 'warrior_left.png'))
+player_pos = pygame.Vector2(screen.get_width() / 2 -32, screen.get_height() / 2 - 32)
 
 while running:
     # poll for events
@@ -60,9 +60,9 @@ while running:
     screen.blit(background, (background_x - background_width, background_y - background_height))
     screen.blit(CHEST, (chest_x, chest_y) )
     if(direction == 2):
-        screen.blit(RYCERZ_IMAGE, (player_pos))
+        screen.blit(WARRIOR_LEFT_IMAGE, (player_pos))
     if(direction == 3):
-        screen.blit(RYCERZR_IMAGE, (player_pos))
+        screen.blit(WARRIOR_RIGHT_IMAGE, (player_pos))
 
     # flip() the display to put your work on screen
     pygame.display.flip()
