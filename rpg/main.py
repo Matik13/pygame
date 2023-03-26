@@ -1,6 +1,7 @@
 # Example file showing a circle moving on screen
 import pygame
 import os
+import random
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((768, 768))
@@ -15,6 +16,9 @@ background_y = 0
 background_width = background.get_width()
 background_height = background.get_height()
 background_speed = 5
+CHEST = pygame.image.load(os.path.join('rpg', 'chest.png'))
+chest_x =random.randint(-100,100)
+chest_y =random.randint(-100,100)
 RYCERZ_IMAGE= pygame.image.load(os.path.join('rpg', 'archer.png'))
 RYCERZR_IMAGE= pygame.image.load(os.path.join('rpg', 'archer1.png'))
 player_pos = pygame.Vector2(screen.get_width() / 2 -64, screen.get_height() / 2 - 64)
@@ -32,13 +36,17 @@ while running:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
         background_y += background_speed
+        chest_y += background_speed
     if keys[pygame.K_s]:
         background_y -= background_speed
+        chest_y -= background_speed
     if keys[pygame.K_a]:
         background_x += background_speed
+        chest_x += background_speed
         direction = 2
     if keys[pygame.K_d]:
         background_x -= background_speed
+        chest_x -= background_speed
         direction = 3
 
     # Obliczenie pozycji tła w nieskończoność
@@ -50,7 +58,7 @@ while running:
     screen.blit(background, (background_x - background_width, background_y))
     screen.blit(background, (background_x, background_y - background_height))
     screen.blit(background, (background_x - background_width, background_y - background_height))
-
+    screen.blit(CHEST, (chest_x, chest_y) )
     if(direction == 2):
         screen.blit(RYCERZ_IMAGE, (player_pos))
     if(direction == 3):
